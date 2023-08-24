@@ -1,24 +1,35 @@
 {
-  "name": "sheet_googlecalendar",
+  "name": "sheet_google_calendar",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d lib",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "push": "clasp push"
+    "generate": "clasp create --title slack_kintai_gas --rootDir src --type standalone && mv ./src/.clasp.json .",
+    "open": "clasp open",
+    "push": "clasp push",
+    "lint": "run-s lint:*",
+    "lint:ts": "eslint --fix --ext ts src",
+    "lint:prettier": "prettier --write **/*.{ts,json,md}",
+    "prepare": "husky install",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "iDeeer",
+  "license": "MIT",
+  "lint-staged": {
+    "src/**/*.ts": "eslint --fix",
+    "*.{ts,json,md}": "prettier --write"
+  },
   "devDependencies": {
-    "@zoltu/typescript-transformer-append-js-extension": "^1.0.1",
-    "rimraf": "^5.0.1",
-    "sirv-cli": "^2.0.2",
-    "ttypescript": "^1.5.15",
-    "typescript": "^5.0.4",
-    "yarn-run-all": "^3.1.1"
-  },
-  "dependencies": {
-    "@types/google-apps-script": "^1.0.64"
+    "@types/google-apps-script": "^1.0.47",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.2",
+    "typescript": "^4.6.4"
   }
 }

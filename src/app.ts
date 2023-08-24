@@ -1,8 +1,9 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function syncCalendar(): void {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
   const data = sheet.getDataRange().getValues();
 
-  const calendarId: string = '';
+  const calendarId = '';
 
   const calendar = CalendarApp.getCalendarById(calendarId);
 
@@ -10,8 +11,6 @@ function syncCalendar(): void {
     const eventTitle: string = data[i][0];
     const startDate: Date = new Date(data[i][1]);
     const endDate: Date = new Date(data[i][2]);
-    const url = ''
-
-    const event = calendar.createEvent(eventTitle, startDate, endDate);
+    calendar.createEvent(eventTitle, startDate, endDate);
   }
 }
