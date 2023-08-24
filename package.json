@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "generate": "clasp create --title slack_kintai_gas --rootDir src --type standalone && mv ./src/.clasp.json .",
+    "generate": "clasp create --title sheet_google_calendar --rootDir src --type standalone && mv ./src/.clasp.json .",
     "open": "clasp open",
     "push": "clasp push",
     "lint": "run-s lint:*",
